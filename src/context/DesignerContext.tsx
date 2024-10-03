@@ -33,6 +33,7 @@ export default function DesignerContextProvider({
     }
 
     const updateElement= (id:string ,element: FormElementInstance)=>{
+        console.log("hiii")
         setElements(prev=>{
             const newEelements = [...prev];
             const index = newEelements.findIndex((el)=> el.id === id);

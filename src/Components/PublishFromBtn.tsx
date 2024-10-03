@@ -2,7 +2,7 @@ import React from 'react'
 
 const PublishFromBtn = () => {
   return (
-    <button>
+    <button className='text-white'>
       Publish
     </button>
   )

@@ -5,6 +5,7 @@ import PublishFromBtn from './PublishFromBtn'
 import Designer from './Designer'
 import { DndContext,  MouseSensor,  TouchSensor,  useSensor, useSensors } from '@dnd-kit/core'
 import DragOverlayWrapper from './DragOverlayWrapper'
+import { idGenerator } from '@/libs/idGenerator'
 
 const FormBuilder = () => {
 
@@ -13,6 +14,10 @@ const FormBuilder = () => {
       distance:10,
     }
   })
+
+  const form ={
+    id:idGenerator()
+  }
 
   const touchSensor = useSensor(TouchSensor,{
     activationConstraint:{
@@ -23,17 +28,17 @@ const FormBuilder = () => {
   const sensors=useSensors(mouseSensor, touchSensor )
   return (
     <DndContext sensors={sensors}>
-    <main className="flex flex-col w-full">
+    <main className="flex flex-col w-full bg-black">
       <div className="flex justify-between border-b-2 border-b-gray-800 p-4 gap-3 items-center">
-        <h2 className="truncate font-medium">
-          <span className="text-muted-foreground mr-2">
+        <h2 className=" font-medium">
+          <span className="text-white mr-2">
             From : My-First-From
           </span>
         </h2>
 
         <div className="flex items-center gap-2">
           <PreviewDailogBtn />
-          <SaveFromBtn />
+          <SaveFromBtn id={form.id} />
           <PublishFromBtn />
         </div>
       </div>

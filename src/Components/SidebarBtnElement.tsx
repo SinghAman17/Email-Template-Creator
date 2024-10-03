@@ -21,12 +21,12 @@ const SidebarBtnElement = ({ formElement }: { formElement: FormElement }) => {
     return (
         <button
         ref={draggable.setNodeRef}
-        className={cn("flex flex-col items-center justify-center border-gray-800 h-[70px] w-[70px] py-2 px-1 bg-black backdrop-brightness-50 rounded-md hover: transition-colors", draggable.isDragging && "ring-2 ")}
+        className={cn("flex flex-col items-center justify-center border-gray-800 h-[90px] w-[90px] py-2 px-1 bg-black backdrop-brightness-50 rounded-md hover: transition-colors", draggable.isDragging && "ring-2 ")}
         {...draggable.listeners}
         {...draggable.attributes}
         >
-            {Icon && <Icon className="h-8 w-8 text-slate-500 cursor-grab" />}
-            <p className="text-xs text-black">{label}</p>
+            {Icon && <Icon className="h-8 w-8 text-white cursor-grab" />}
+            <p className="text-xs text-white">{label}</p>
         </button>
     )
 }
