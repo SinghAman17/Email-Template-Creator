@@ -1,4 +1,4 @@
-import { LuHeading1 } from "react-icons/lu";import {
+import {  LuHeading2 } from "react-icons/lu";import {
   ElementsType,
   FormElement,
   FormElementInstance,
@@ -20,10 +20,11 @@ import {
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
-const type: ElementsType = "TitleField";
+const type: ElementsType = "SubTitleField";
 
 const extraAttributes = {
-  title: "Title Field",
+  title: "Sub Title Field",
+
 };
 
 
@@ -32,7 +33,7 @@ const propertiesSchema = z.object({
 
 });
 
-export const TitleFieldFormElement: FormElement = {
+export const SubTitleFieldFormElement: FormElement = {
   type,
   construct: (id: string) => ({
     id,
@@ -40,8 +41,8 @@ export const TitleFieldFormElement: FormElement = {
     extraAttributes,
   }),
   designerBtnElement: {
-    icon: LuHeading1,
-    label: "Title Field",
+    icon: LuHeading2,
+    label: "Subtitle Field",
   },
   designerComponent: DesignerComponent,
   formComponent: FormComponent,
@@ -75,12 +76,12 @@ function PropertiesComponent({
   }, [element, form]);
 
   function applyChanges(values: propertiesFormSchemaType) {
-    const { title } = values;
+    const { title} = values;
   
     updateElement(element.id, {
       ...element,
       extraAttributes: {
-        title
+        title,
       },
     });
   }
@@ -129,6 +130,7 @@ function PropertiesComponent({
             </FormItem>
           )}
         />
+        
 
       </form>
     </Form>
@@ -137,13 +139,13 @@ function PropertiesComponent({
 
 function DesignerComponent({ elementInstance }: { elementInstance: FormElementInstance }) {
   const element = elementInstance as CustomInstance;
-  const { title} = element.extraAttributes;
+  const { title } = element.extraAttributes;
 
   return (
     <div className="flex flex-col items-start gap-2 w-full">
-      <Label className="text-white/70">Title Field</Label>
+      <Label className="text-white/70">SubTitle Field</Label>
       <p
-        className="text-xl"
+        className="text-md"
       >
         {title}
       </p>
@@ -157,7 +159,7 @@ function FormComponent({ elementInstance }: { elementInstance: FormElementInstan
 
   return (
     <p
-      className="text-xl"
+      className="text-md"
     >
       {title}
     </p>
